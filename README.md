@@ -173,6 +173,7 @@ git push origin branch-name
 --------------------------------------------------
 
 Internship Goals
+Just
 
 Students will learn:
 - Git & GitHub workflow
