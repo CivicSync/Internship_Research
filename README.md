@@ -1,200 +1,116 @@
+Flutter Habit Tracking App
 
-# Internship Research Repository
+Team Members
+- Gauri Sharma
+- Swati Dongare
 
-Welcome to the CSF Internship Research Repository.
+Objective
 
-Objective:
-- Maintain internship research work
-- Track coding and documentation contributions
-- Improve collaboration using GitHub workflows
-- Maintain branch-wise task segregation
+The objective of this project is to develop a simple Flutter-based Habit Tracking Application that helps users maintain daily habits and track their consistency. The app allows users to create habits, mark daily completion, and monitor progress through streaks and summaries.
 
---------------------------------------------------
+Approach
 
-STEP 1 — GitHub Account Verification
+1. Requirement Analysis
 
-1. Check whether you already have a GitHub account.
+First, the application requirements were analyzed to understand the core functionalities such as habit creation, daily tracking, streak management, and progress monitoring.
 
-2. If you do NOT have a GitHub account:
-   - Create a GitHub account
-   - Share your GitHub username
-   - Wait for collaborator access
+2. UI Design
 
-3. If you already have a GitHub account:
-   - Share your GitHub username
+A clean and simple user interface was designed using Flutter widgets. The application contains multiple screens for adding habits, viewing habit lists, daily check-ins, and progress summaries.
 
---------------------------------------------------
+3. Database Design
 
-Collaborator Access
+A MySQL database was used to store habit information and daily completion records. Two tables were created:
 
-All submitted GitHub usernames will be added as collaborators to the CSF Repository.
+- "habits"
+- "habit_logs"
 
---------------------------------------------------
+4. Backend Integration
 
-Branch Rules
+PHP APIs were used to connect the Flutter application with the MySQL database. APIs handle operations such as:
 
-IMPORTANT:
-Do NOT push directly to the main branch.
+- Adding habits
+- Fetching habits
+- Updating completion status
+- Retrieving progress data
 
-Each student must create a separate branch.
+5. Habit Tracking Logic
 
---------------------------------------------------
+The application tracks user consistency by storing completed habit records daily and calculating streak counts based on consecutive completion days.
 
-Branch Naming Convention
+6. Testing
 
-topic-name-student-name
+The application was tested on Android devices to ensure proper functionality of habit creation, tracking, database operations, and UI responsiveness.
 
-Examples:
-- payment-security-abhishek
-- ai-research-rohan
-- cloud-computing-sneha
 
---------------------------------------------------
+Features
 
-Task Categories
+- Add new habits
+- View all habits
+- Mark daily habit completion
+- Track habit streaks
+- View progress summary
+- Simple and user-friendly UI
+- MySQL database integration
 
-1. Coding / Development Tasks
+Tools & Technologies
 
-If your internship topic includes:
-- coding
-- implementation
-- APIs
-- frontend/backend
-- scripts
-- projects
+- Flutter
+- Dart
+- MySQL
+- PHP
+- Android Studio
 
-Workflow:
-1. Create a new branch
-2. Add your source code
-3. Commit changes
-4. Push to your branch
 
-Example Commands:
+Database Structure
 
-git checkout -b payment-gateway-abhishek
-git add .
-git commit -m "Added payment gateway research code"
-git push origin payment-gateway-abhishek
+Table: habits
+Stores habit details.
 
---------------------------------------------------
+Fields:
 
-2. Research / Documentation Tasks
+- id
+- title
+- category
+- reminder_time
 
-If your work includes:
-- research
-- notes
-- PDFs
-- images
-- diagrams
-- documentation
+Table: habit_logs
+Stores daily completion records.
 
-Workflow:
-1. Create a separate branch
-2. Upload all files
-3. Push to your branch
+Fields:
 
-Example Commands:
+- id
+- habit_id
+- completed_date
+- status
 
-git checkout -b ai-research-rohan
-git add .
-git commit -m "Added AI research documentation"
-git push origin ai-research-rohan
 
---------------------------------------------------
 
-Folder Structure Recommendation
+App Flow
 
-/project-name
-    /docs
-    /images
-    /code
-    README.md
+1. User opens the application
+2. User creates a habit
+3. Habit appears in the habit list
+4. User marks habits as completed daily
+5. Progress and streak data are updated automatically
 
---------------------------------------------------
 
-Commit Message Rules
+Expected Output
 
-Good Examples:
-- Added payment API implementation
-- Uploaded AI research report
-- Added internship documentation
-- Implemented authentication module
+- Flutter source code
+- APK file or demo video
+- Application screenshots
+- Database integration
+- Functional habit tracking system
 
-Avoid:
-- final
-- update
-- work
-- changes
 
---------------------------------------------------
+Future Improvements
 
-Submission Process
+- Push notifications/reminders
+- Dark mode support
+- Weekly and monthly analytics
 
-After completing your work:
-1. Push all changes to your branch
-2. Share:
-   - Branch name
-   - Topic name
-   - Short work summary
 
---------------------------------------------------
+Conclusion
 
-Repository Guidelines
-
-- Keep code clean and organized
-- Avoid unnecessary files
-- Do not delete others’ work
-- Maintain proper folder structure
-- Upload only relevant files
-- Follow naming conventions
-
---------------------------------------------------
-
-Recommended Git Commands
-
-Clone Repository:
-git clone <repository-link>
-
-Create Branch:
-git checkout -b your-branch-name
-
-Check Current Branch:
-git branch
-
-Add Files:
-git add .
-
-Commit Changes:
-git commit -m "Your commit message"
-
-Push Branch:
-git push origin branch-name
-
---------------------------------------------------
-
-Internship Goals
-
-Students will learn:
-- Git & GitHub workflow
-- Branch management
-- Team collaboration
-- Research documentation
-- Code management
-- Open-source contribution practices
-- Professional software development workflow
-
---------------------------------------------------
-
-Important Notes
-
-- Every task must have a separate branch
-- Main branch is restricted
-- Research-only submissions are also mandatory through branches
-- All students must maintain proper GitHub activity during internship
-
---------------------------------------------------
-
-Maintained By:
-CSF Internship Program
-Qviple Research & Development Team
-
+The Flutter Habit Tracking App provides a simple solution for users to build consistency in daily activities. The project demonstrates Flutter UI development, backend integration, and database management using MySQL.
