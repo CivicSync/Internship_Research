@@ -1,200 +1,368 @@
+# Task No: 10
 
-# Internship Research Repository
+# Secure API Authorization, Input Validation and Permission Checks
 
-Welcome to the CSF Internship Research Repository.
+## For Qviple ERP & LMS
 
-Objective:
-- Maintain internship research work
-- Track coding and documentation contributions
-- Improve collaboration using GitHub workflows
-- Maintain branch-wise task segregation
+### Team Members
 
---------------------------------------------------
+* Vansh Kulkarni
+* Sarvesh Kulkarni
 
-STEP 1 — GitHub Account Verification
+---
 
-1. Check whether you already have a GitHub account.
+# 1. Introduction
 
-2. If you do NOT have a GitHub account:
-   - Create a GitHub account
-   - Share your GitHub username
-   - Wait for collaborator access
+ERP and LMS systems store important information such as student records, attendance, assignments, fees, and examination data. Since many users access the system, backend API security becomes very important.
 
-3. If you already have a GitHub account:
-   - Share your GitHub username
+In this project, we researched secure API authorization, input validation, and permission checks for Node.js Express APIs used in ERP and LMS systems.
 
---------------------------------------------------
+The project mainly focuses on preventing unauthorized access, invalid requests, hidden privilege escalation, and mass assignment using secure backend practices.
 
-Collaborator Access
+---
 
-All submitted GitHub usernames will be added as collaborators to the CSF Repository.
+# 2. Objective
 
---------------------------------------------------
+The objective of this project is:
 
-Branch Rules
+* To study secure API design
+* To implement role-based access control
+* To validate user inputs properly
+* To secure APIs using middleware
+* To prevent unauthorized access, mass assignment, bad input, and privilege escalation
 
-IMPORTANT:
-Do NOT push directly to the main branch.
+---
 
-Each student must create a separate branch.
+# 3. Technologies and Concepts Used
 
---------------------------------------------------
+| Technology / Concept | Purpose                   |
+| -------------------- | ------------------------- |
+| Node.js              | Backend runtime           |
+| Express.js           | API framework             |
+| JWT Authentication   | User authentication       |
+| Middleware           | Request verification      |
+| express-validator    | Input validation          |
+| RBAC                 | Role-Based Access Control |
 
-Branch Naming Convention
+---
 
-topic-name-student-name
+# 4. Role-Based Access Control (RBAC)
 
-Examples:
-- payment-security-abhishek
-- ai-research-rohan
-- cloud-computing-sneha
+Role-Based Access Control is used to provide different permissions to different users according to their role so that unauthorized access is prevented.
 
---------------------------------------------------
+### Examples
 
-Task Categories
+* Admin has complete access
+* Teachers can manage assignments
+* Students can only view their courses
+* Parents can view student progress
 
-1. Coding / Development Tasks
+RBAC improves security and prevents unauthorized access.
 
-If your internship topic includes:
-- coding
-- implementation
-- APIs
-- frontend/backend
-- scripts
-- projects
+---
 
-Workflow:
-1. Create a new branch
-2. Add your source code
-3. Commit changes
-4. Push to your branch
+# 5. Role-Permission Matrix
 
-Example Commands:
+| Role          | Permissions                              |
+| ------------- | ---------------------------------------- |
+| Admin         | Full system access                       |
+| Teacher       | Upload assignments and manage attendance |
+| Student       | View courses and assignments             |
+| Parent        | View student progress                    |
+| Accountant    | Manage fee records                       |
+| Support Staff | Handle support requests                  |
 
-git checkout -b payment-gateway-abhishek
-git add .
-git commit -m "Added payment gateway research code"
-git push origin payment-gateway-abhishek
+---
 
---------------------------------------------------
+# 6. Security Threat Report
 
-2. Research / Documentation Tasks
+During research, we identified some common security threats affecting ERP and LMS APIs.
 
-If your work includes:
-- research
-- notes
-- PDFs
-- images
-- diagrams
-- documentation
+### Unauthorized Access
 
-Workflow:
-1. Create a separate branch
-2. Upload all files
-3. Push to your branch
+Users accessing restricted APIs or data without permission.
 
-Example Commands:
+### SQL Injection
 
-git checkout -b ai-research-rohan
-git add .
-git commit -m "Added AI research documentation"
-git push origin ai-research-rohan
+Malicious SQL queries inserted through input fields.
 
---------------------------------------------------
+### Broken Access Control
 
-Folder Structure Recommendation
+Improper permission checks allowing restricted operations.
 
-/project-name
-    /docs
-    /images
-    /code
-    README.md
+### Invalid Input
 
---------------------------------------------------
+Incorrect or harmful user data affecting application behavior.
 
-Commit Message Rules
+### Privilege Escalation
 
-Good Examples:
-- Added payment API implementation
-- Uploaded AI research report
-- Added internship documentation
-- Implemented authentication module
+Low-level users gaining higher-level permissions.
 
-Avoid:
-- final
-- update
-- work
-- changes
+### Weak Passwords
 
---------------------------------------------------
+Simple passwords increasing risk of account compromise.
 
-Submission Process
+### Mass Assignment
 
-After completing your work:
-1. Push all changes to your branch
-2. Share:
-   - Branch name
-   - Topic name
-   - Short work summary
+Users may submit hidden fields such as role or permissions to gain unauthorized access.
 
---------------------------------------------------
+---
 
-Repository Guidelines
+# 7. Risk Severity Table
 
-- Keep code clean and organized
-- Avoid unnecessary files
-- Do not delete others’ work
-- Maintain proper folder structure
-- Upload only relevant files
-- Follow naming conventions
+| Threat                | Severity | Possible Impact             |
+| --------------------- | -------- | --------------------------- |
+| Unauthorized Access   | High     | Data leakage                |
+| SQL Injection         | High     | Database compromise         |
+| Weak Passwords        | Medium   | Account hacking             |
+| Invalid Input         | Medium   | Application errors          |
+| Privilege Escalation  | High     | Unauthorized control        |
+| Broken Access Control | High     | Security bypass             |
+| Mass Assignment       | High     | Unauthorized privilege gain |
 
---------------------------------------------------
+---
 
-Recommended Git Commands
+# 8. Input Validation
 
-Clone Repository:
-git clone <repository-link>
+Input validation ensures that only safe and valid data enters the system.
 
-Create Branch:
-git checkout -b your-branch-name
+### Validation Libraries Researched
 
-Check Current Branch:
-git branch
+* express-validator
+* Joi
+* Zod
 
-Add Files:
-git add .
+### Benefits
 
-Commit Changes:
-git commit -m "Your commit message"
+* Prevent invalid form submission
+* Prevent malicious input
+* Prevent empty fields
+* Prevent harmful scripts
 
-Push Branch:
-git push origin branch-name
+---
 
---------------------------------------------------
+## 8.1 Mass Assignment Prevention
 
-Internship Goals
+Mass Assignment is a security vulnerability where a user sends additional fields in a request that should not be modified.
 
-Students will learn:
-- Git & GitHub workflow
-- Branch management
-- Team collaboration
-- Research documentation
-- Code management
-- Open-source contribution practices
-- Professional software development workflow
+### Example
 
---------------------------------------------------
+json
+{
+  "name": "Rahul",
+  "email": "rahul@gmail.com",
+  "role": "admin"
+}
 
-Important Notes
 
-- Every task must have a separate branch
-- Main branch is restricted
-- Research-only submissions are also mandatory through branches
-- All students must maintain proper GitHub activity during internship
+If the API updates all fields directly, the user may gain unauthorized privileges.
 
---------------------------------------------------
+### Prevention Methods
 
-Maintained By:
-CSF Internship Program
-Qviple Research & Development Team
+* Allow only approved fields to be updated
+* Ignore unknown request fields
+* Validate all requests using express-validator, Joi, or Zod
+* Never allow users to modify role, permissions, or account status
+* Use field whitelisting before database updates
 
+---
+
+# 9. Validation Examples
+
+| Field        | Validation Rule                 |
+| ------------ | ------------------------------- |
+| Email        | Must contain valid email format |
+| Password     | Minimum 8 characters            |
+| Phone Number | Digits only                     |
+| Name         | Cannot be empty                 |
+| File Upload  | Allow only safe file types      |
+
+---
+
+## 9.1 Validation Checklist
+
+| Validation Check        | Purpose                         |
+| ----------------------- | ------------------------------- |
+| Email Validation        | Verify valid email format       |
+| Password Length Check   | Enforce minimum password length |
+| Required Fields Check   | Prevent empty values            |
+| Phone Number Validation | Allow digits only               |
+| File Type Validation    | Restrict unsafe uploads         |
+| Unknown Field Rejection | Block unexpected fields         |
+| Role Field Protection   | Prevent role modification       |
+| Input Sanitization      | Remove harmful scripts          |
+
+---
+
+# 10. Sample Input Validation Code
+
+js
+const { body, validationResult } = require('express-validator');
+
+app.post('/register',
+[
+  body('email').isEmail(),
+  body('password').isLength({ min: 8 })
+],
+(req, res) => {
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  res.send("Valid Input");
+});
+
+
+---
+
+# 11. API Authorization
+
+API authorization ensures that only authorized users can access protected routes and sensitive data.
+
+### Examples
+
+* Students should not access admin APIs
+* Teachers should not modify fee records
+* Parents should only view their child's information
+
+Authorization improves backend security and protects sensitive data.
+
+---
+
+# 12. Protected API Examples
+
+| API Route            | Authorized User |
+| -------------------- | --------------- |
+| GET /student/courses | Student         |
+| POST /teacher/upload | Teacher         |
+| DELETE /admin/user   | Admin           |
+| GET /fees/details    | Accountant      |
+| GET /parent/progress | Parent          |
+| GET /support/tickets | Support Staff   |
+
+---
+
+# 13. Middleware Security
+
+Middleware acts as a security layer between the request and the API.
+
+### Middleware verifies:
+
+* User role
+* Authentication
+* Permissions
+* Validation rules
+
+before allowing access to protected APIs.
+
+---
+
+## 13.1 Sample Middleware Plan
+
+### Step 1: Authentication
+
+Verify JWT token and identify the user.
+
+### Step 2: Authorization
+
+Check whether the user has permission to access the API.
+
+### Step 3: Input Validation
+
+Validate request data using express-validator, Joi, or Zod.
+
+### Step 4: Permission Check
+
+Verify ownership and access rights for requested resources.
+
+### Step 5: API Execution
+
+Allow API execution only after all checks pass.
+
+### Middleware Flow
+
+
+Request
+↓
+JWT Authentication
+↓
+Role Verification
+↓
+Input Validation
+↓
+Permission Check
+↓
+API Access Granted
+
+
+
+
+# 14. Sample Middleware Code
+
+js
+function checkAdmin(req, res, next){
+
+   if(req.user.role !== "admin"){
+      return res.status(403).send("Access Denied");
+   }
+
+   next();
+}
+
+
+
+
+# 15. Module-Wise Security Checklist
+
+| Module            | Security Check              |
+| ----------------- | --------------------------- |
+| Login             | Password validation         |
+| Student Dashboard | Student-only access         |
+| Teacher Panel     | Teacher role verification   |
+| Admin Panel       | Admin middleware protection |
+| Fee Management    | Accountant access only      |
+| File Upload       | File type validation        |
+
+---
+
+# 16. Recommended Security Fixes
+
+* Use JWT authentication
+* Validate all user inputs
+* Implement role-based middleware
+* Use strong password policies
+* Restrict API access by role
+* Use HTTPS for secure communication
+* Prevent direct database access
+* Limit failed login attempts
+* Use field whitelisting to prevent mass assignment
+* Reject unexpected request parameters
+* Log suspicious activities
+
+---
+
+# 17. Challenges Faced
+
+* Understanding API authorization flow
+* Learning validation libraries
+* Researching backend security concepts
+* Designing role-based access control
+
+These challenges were solved through documentation research and practical examples.
+
+---
+
+# 18. Conclusion
+
+In this project, we studied secure API authorization, input validation, and permission checks for ERP and LMS systems.
+
+We researched common backend security threats and methods to improve API security using:
+
+* Role-Based Access Control (RBAC)
+* Middleware validation
+* Secure API design practices
+
+This project helped us understand practical backend security concepts used in real-world ERP and LMS applications.
