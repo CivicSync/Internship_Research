@@ -1,104 +1,199 @@
-**Project approach**
 
-**Task 10: Project Approach: AI in Healthcare – How AI Supports Doctors and Patients**  
-**Team Members:** Sairaj Salkar and Harish Sable 
+# Internship Research Repository
 
-1. What Is This Project About?
-This project is about understanding how **AI can help in healthcare**. AI supports doctors by making diagnosis faster, helps patients with health advice and reminders, and helps clinic staff by handling appointments.
+Welcome to the CSF Internship Research Repository.
 
-My goals:
-- Learn 6 main ways AI is used in healthcare
-- Explain why AI should help doctors, not replace them
-- Design a simple medicine reminder chatbot
+Objective:
+- Maintain internship research work
+- Track coding and documentation contributions
+- Improve collaboration using GitHub workflows
+- Maintain branch-wise task segregation
 
-2. 6 AI Use Cases in Healthcare
+--------------------------------------------------
 
-| # | Use Case | What AI Does | Who It Helps |
-|---|----------|--------------|--------------|
-| 1 | Disease Prediction | Predicts if someone might get diabetes/heart disease | Doctors, Patients |
-| 2 | Medical Image Analysis | Reads X-rays, CT scans, MRIs to find problems | Doctors |
-| 3 | Health Chatbots | Answers health questions 24/7 | Patients, Clinic Staff |
-| 4 | Appointment Scheduling | Books and reminds patients for visits | Clinic Staff, Patients |
-| 5 | Medicine Reminders | Sends reminders to take medicine on time | Patients, Doctors |
-| 6 | Patient Record Analysis | Highlights important info in patient records | Doctors |
+STEP 1 — GitHub Account Verification
 
+1. Check whether you already have a GitHub account.
 
-3. Why AI Should Assist, Not Replace Doctors
+2. If you do NOT have a GitHub account:
+   - Create a GitHub account
+   - Share your GitHub username
+   - Wait for collaborator access
 
-| Limitation | Simple Explanation |
-|------------|-------------------|
-| AI is not a doctor | AI can make mistakes. Only doctors can diagnose |
-| Privacy matters | Patient data must stay private and secure |
-| AI can be biased | May not work well for everyone |
-| Doctors need understanding | Doctors should know WHY AI gave a suggestion |
-| Human check needed | Doctor must review AI recommendations |
+3. If you already have a GitHub account:
+   - Share your GitHub username
 
-4. Why I chose this:
-- Many patients forget medicine
-- Simple to design
-- Helps patients stay healthy
-- Doctors can track adherence
+--------------------------------------------------
 
+Collaborator Access
 
-4.1 How It Works
-1. New users register with name, phone, medicine details
-2. Old users login with phone + OTP
-3. Chatbot sends daily reminders via WhatsApp/SMS
-4. Patients can: view reminders, update timing, skip, contact doctor
+All submitted GitHub usernames will be added as collaborators to the CSF Repository.
 
-4.2 Sample Conversation
+--------------------------------------------------
 
-🤖 Bot: Hello! Welcome to MedReminder. New user?
-👤 Patient: Yes
+Branch Rules
 
-🤖 Bot: Enter your name:
-👤 Patient: Sairaj Salkar
+IMPORTANT:
+Do NOT push directly to the main branch.
 
-🤖 Bot: Enter phone number:
-👤 Patient: 9876543210
+Each student must create a separate branch.
 
-🤖 Bot: How many medicines daily?
-👤 Patient: 2
+--------------------------------------------------
 
-🤖 Bot: Medicine 1 (name, dosage, time):
-👤 Patient: Metformin 500mg 8 AM
+Branch Naming Convention
 
-🤖 Bot: Medicine 2:
-👤 Patient: Atorvastatin 10mg 9 PM
+topic-name-student-name
 
-🤖 Bot: ✅ Saved! Reminders at 8 AM and 9 PM.
+Examples:
+- payment-security-abhishek
+- ai-research-rohan
+- cloud-computing-sneha
 
-👤 Patient: Show tomorrow's reminders
+--------------------------------------------------
 
-🤖 Bot: Tomorrow:
-   1. Metformin 500mg — 8:00 AM
-   2. Atorvastatin 10mg — 9:00 PM
+Task Categories
 
-🤖 Bot: Take care! ❤️
+1. Coding / Development Tasks
 
-5. Deliverables
+If your internship topic includes:
+- coding
+- implementation
+- APIs
+- frontend/backend
+- scripts
+- projects
 
-| What I Submit | What It Is |
-|---------------|-----------|
-| Flowchart | Simple chatbot diagram |
-| Explanation | 100-word description |
-| Sample Conversation | Example chat |
-| One-Page Report | This document |
+Workflow:
+1. Create a new branch
+2. Add your source code
+3. Commit changes
+4. Push to your branch
 
-6. What I Will Learn
+Example Commands:
 
-- How AI is used in healthcare
-- AI helping vs. replacing doctors
-- How to design chatbot flow
-- Why safety matters in medical AI
-- How technology improves patient care
+git checkout -b payment-gateway-abhishek
+git add .
+git commit -m "Added payment gateway research code"
+git push origin payment-gateway-abhishek
 
-7. Simple Summary
+--------------------------------------------------
 
-| Who | How AI Helps |
-|-----|--------------|
-| Doctors | Faster diagnosis, less paperwork |
-| Patients | 24/7 help, won't forget medicine |
-| Clinic Staff | Fewer calls, fewer missed appointments |
+2. Research / Documentation Tasks
 
-Conclusion: AI makes healthcare better, but doctors stay in charge.
+If your work includes:
+- research
+- notes
+- PDFs
+- images
+- diagrams
+- documentation
+
+Workflow:
+1. Create a separate branch
+2. Upload all files
+3. Push to your branch
+
+Example Commands:
+
+git checkout -b ai-research-rohan
+git add .
+git commit -m "Added AI research documentation"
+git push origin ai-research-rohan
+
+--------------------------------------------------
+
+Folder Structure Recommendation
+
+/project-name
+    /docs
+    /images
+    /code
+    README.md
+
+--------------------------------------------------
+
+Commit Message Rules
+
+Good Examples:
+- Added payment API implementation
+- Uploaded AI research report
+- Added internship documentation
+- Implemented authentication module
+
+Avoid:
+- final
+- update
+- work
+- changes
+
+--------------------------------------------------
+
+Submission Process
+
+After completing your work:
+1. Push all changes to your branch
+2. Share:
+   - Branch name
+   - Topic name
+   - Short work summary
+
+--------------------------------------------------
+
+Repository Guidelines
+
+- Keep code clean and organized
+- Avoid unnecessary files
+- Do not delete others’ work
+- Maintain proper folder structure
+- Upload only relevant files
+- Follow naming conventions
+
+--------------------------------------------------
+
+Recommended Git Commands
+
+Clone Repository:
+git clone <repository-link>
+
+Create Branch:
+git checkout -b your-branch-name
+
+Check Current Branch:
+git branch
+
+Add Files:
+git add .
+
+Commit Changes:
+git commit -m "Your commit message"
+
+Push Branch:
+git push origin branch-name
+
+--------------------------------------------------
+
+Internship Goals
+
+Students will learn:
+- Git & GitHub workflow
+- Branch management
+- Team collaboration
+- Research documentation
+- Code management
+- Open-source contribution practices
+- Professional software development workflow
+
+--------------------------------------------------
+
+Important Notes
+
+- Every task must have a separate branch
+- Main branch is restricted
+- Research-only submissions are also mandatory through branches
+- All students must maintain proper GitHub activity during internship
+
+--------------------------------------------------
+
+Maintained By:
+CSF Internship Program
+Qviple Research & Development Team
