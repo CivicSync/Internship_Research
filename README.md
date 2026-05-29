@@ -1,199 +1,214 @@
 
-# Internship Research Repository
+# **Project Approach: Local AI LLM for PDF Extraction, Summary, and Assignment Support**  
+**Student:** Harshada Deshmukh, Janhavi Desale, Rohini Jadhav 
 
-Welcome to the CSF Internship Research Repository.
 
-Objective:
-- Maintain internship research work
-- Track coding and documentation contributions
-- Improve collaboration using GitHub workflows
-- Maintain branch-wise task segregation
+## 1. What Is This Project About?
 
---------------------------------------------------
+This project is about using **AI that runs on my own computer** (local AI) instead of sending documents to the cloud. I want to build a system where teachers can upload a PDF (like study material or a textbook chapter), and the AI will automatically:
 
-STEP 1 — GitHub Account Verification
+- Extract all the text from the PDF
+- Create a simple summary
+- Pull out important keywords
+- Suggest possible assignment topics
 
-1. Check whether you already have a GitHub account.
 
-2. If you do NOT have a GitHub account:
-   - Create a GitHub account
-   - Share your GitHub username
-   - Wait for collaborator access
 
-3. If you already have a GitHub account:
-   - Share your GitHub username
+## 2. What I Will Study and Research
 
---------------------------------------------------
+### 2.1 Local AI Tools to Compare
 
-Collaborator Access
+I will research and compare these popular local LLM options:
 
-All submitted GitHub usernames will be added as collaborators to the CSF Repository.
+| Tool | What It Is | Good For | Requirements |
+|------|------------|----------|--------------|
+| **Ollama** | Easy tool to run LLMs locally on PC/Mac | Students, beginners | 8GB+ RAM, decent GPU |
+| **LM Studio** | Desktop app with nice interface for local models | Easy testing, no coding | Windows/Mac, 8GB RAM |
+| **GPT4All** | Open-source local AI that works offline | Privacy-focused users | 8GB RAM minimum |
+| **Llama.cpp** | Lightweight tool for running LLMs | Low hardware requirements | 4GB+ RAM |
 
---------------------------------------------------
+### 2.2 PDF Text Extraction Methods
 
-Branch Rules
+I will study how to pull text from PDFs:
 
-IMPORTANT:
-Do NOT push directly to the main branch.
+- **PyPDF2** – Simple Python library for basic PDFs
+- **PyMuPDF** – Faster and handles more PDF types
+- **Layout detection** – For PDFs with images and tables (more advanced)
 
-Each student must create a separate branch.
+### 2.3 Privacy Benefits
 
---------------------------------------------------
+Why use local AI instead of cloud AI (like ChatGPT)?
 
-Branch Naming Convention
+| Benefit | Explanation |
+|---------|-------------|
+| **No data leaves my computer** | Student/teacher documents stay private |
+| **No internet needed** | Works offline, good for areas with poor connectivity |
+| **No subscription fees** | Free open-source tools, no monthly payments |
+| **Full control** | I can modify the system however I want |
+| **No usage limits** | Can process as many PDFs as I want |
 
-topic-name-student-name
+***
 
-Examples:
-- payment-security-abhishek
-- ai-research-rohan
-- cloud-computing-sneha
+## 3. How the System Will Work (Simple Workflow)
 
---------------------------------------------------
+**Step 1:** Teacher uploads a PDF file (like a chapter from a textbook)
 
-Task Categories
+**Step 2:** System extracts all the text from the PDF pages
 
-1. Coding / Development Tasks
+**Step 3:** Text is sent to the local AI model running on the computer
 
-If your internship topic includes:
-- coding
-- implementation
-- APIs
-- frontend/backend
-- scripts
-- projects
+**Step 4:** AI creates these outputs:
+- A short summary (3–5 sentences)
+- A longer summary (1 paragraph)
+- List of 5–10 important keywords
+- 3–5 possible assignment questions/topics
 
-Workflow:
-1. Create a new branch
-2. Add your source code
-3. Commit changes
-4. Push to your branch
+**Step 5:** Teacher downloads or copies the results
 
-Example Commands:
+**Step 6:** If the local AI is too slow or computer is weak, fall back to a simpler model or cloud option (backup plan)
 
-git checkout -b payment-gateway-abhishek
-git add .
-git commit -m "Added payment gateway research code"
-git push origin payment-gateway-abhishek
+***
 
---------------------------------------------------
+## 4. Sample Output Format (What the Summary Will Look Like)
 
-2. Research / Documentation Tasks
+```
+========================================
+PDF SUMMARY REPORT
+========================================
 
-If your work includes:
-- research
-- notes
-- PDFs
-- images
-- diagrams
-- documentation
+File Name: Chapter_5_Biology.pdf
+Pages Processed: 12
+Processing Time: 45 seconds
 
-Workflow:
-1. Create a separate branch
-2. Upload all files
-3. Push to your branch
+----------------------------------------
+SHORT SUMMARY (3–5 sentences)
+----------------------------------------
+This chapter explains the structure and function of plant cells. 
+It covers cell organelles like chloroplasts, mitochondria, and 
+nucleus. The chapter also discusses photosynthesis and how plants 
+make their own food using sunlight.
 
-Example Commands:
+----------------------------------------
+LONG SUMMARY (1 paragraph)
+----------------------------------------
+Chapter 5 introduces students to plant cell biology. It begins 
+with the basic definition of a cell and then moves into detailed 
+explanations of each organelle. Special focus is given to 
+chloroplasts and the process of photosynthesis. The chapter 
+includes diagrams showing cell structure and comparison tables 
+between plant and animal cells.
 
-git checkout -b ai-research-rohan
-git add .
-git commit -m "Added AI research documentation"
-git push origin ai-research-rohan
+----------------------------------------
+KEYWORDS (5–10 important terms)
+----------------------------------------
+1. Plant Cell
+2. Chloroplast
+3. Mitochondria
+4. Photosynthesis
+5. Cell Wall
+6. Nucleus
+7. Cytoplasm
+8. Cell Membrane
+9. Chlorophyll
+10. Energy Production
 
---------------------------------------------------
+----------------------------------------
+POSSIBLE ASSIGNMENT TOPICS
+----------------------------------------
+1. Draw and label a plant cell with all organelles
+2. Explain photosynthesis in your own words (200 words)
+3. Compare plant cell vs animal cell (table format)
+4. What would happen if chloroplasts stopped working?
+5. Research project: How do plants produce oxygen?
 
-Folder Structure Recommendation
+========================================
+```
 
-/project-name
-    /docs
-    /images
-    /code
-    README.md
+***
 
---------------------------------------------------
+## 5. Hardware Requirements (What Computer Do I Need?)
 
-Commit Message Rules
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| **RAM** | 8 GB | 16 GB or more |
+| **Processor** | Intel i5 / AMD Ryzen 5 | Intel i7 / AMD Ryzen 7 |
+| **Graphics Card** | Integrated GPU | Dedicated GPU (NVIDIA GTX 1650+) |
+| **Storage** | 10 GB free space | 20 GB free space (for models) |
+| **Operating System** | Windows 10 / macOS / Linux | Windows 11 / macOS |
 
-Good Examples:
-- Added payment API implementation
-- Uploaded AI research report
-- Added internship documentation
-- Implemented authentication module
 
-Avoid:
-- final
-- update
-- work
-- changes
+## 6. Limitations and Challenges
 
---------------------------------------------------
+| Limitation | What It Means | How I Will Handle It |
+|------------|---------------|---------------------|
+| **Slower than cloud AI** | Local AI takes more time to process | Use smaller models, be patient |
+| **Needs good hardware** | Weak computers may struggle | Offer multiple model sizes (small/medium/large) |
+| **Model quality varies** | Some free models are not as smart | Test multiple models, pick the best one |
+| **Large PDFs are hard** | Very long documents may not fit in memory | Split PDF into smaller sections |
+| **Complex PDFs** | Scanned PDFs or images inside PDFs need special tools | Use OCR (optical character recognition) for scanned files |
 
-Submission Process
+***
 
-After completing your work:
-1. Push all changes to your branch
-2. Share:
-   - Branch name
-   - Topic name
-   - Short work summary
+## 7. Fallback Options (Plan B)
 
---------------------------------------------------
+If the local AI does not work well, I have these backup plans:
 
-Repository Guidelines
+1. **Use a smaller AI model** – Faster but less accurate
+2. **Split PDF into smaller parts** – Process page by page instead of whole document
+3. **Use cloud AI as backup** – Only if user agrees and data is not sensitive
+4. **Simplify the output** – Just summary without keywords or assignment topics
 
-- Keep code clean and organized
-- Avoid unnecessary files
-- Do not delete others’ work
-- Maintain proper folder structure
-- Upload only relevant files
-- Follow naming conventions
+***
 
---------------------------------------------------
+## 8. Backend API Integration Notes
 
-Recommended Git Commands
+If the company wants to connect this to their existing system:
 
-Clone Repository:
-git clone <repository-link>
+- The local AI runs as a **separate service** on the computer
+- Backend sends PDF to local AI using **REST API** (simple HTTP requests)
+- Local AI returns JSON format with summary, keywords, and topics
+- Can work with **Python Flask** or **FastAPI** for the backend
+- No internet needed for the AI part, only for user login if needed
 
-Create Branch:
-git checkout -b your-branch-name
+**Simple API structure:**
+```
+POST /summarize
+Body: { "file": "PDF file here" }
+Response: { "summary": "...", "keywords": [...], "assignment_topics": [...] }
+```
 
-Check Current Branch:
-git branch
+***
 
-Add Files:
-git add .
+## 9. What I Will Submit (Deliverables)
 
-Commit Changes:
-git commit -m "Your commit message"
+| Deliverable | What It Is |
+|-------------|------------|
+| **Workflow description** | Simple written explanation of how the system works (this document) |
+| **Sample summary output** | Example of what the AI summary will look like (shown above) |
+| **Local AI tool comparison** | Table comparing Ollama, LM Studio, GPT4All, Llama.cpp |
+| **Integration notes** | Simple explanation of how to connect to backend APIs |
 
-Push Branch:
-git push origin branch-name
+***
 
---------------------------------------------------
+## 10. What I Will Learn From This Project
 
-Internship Goals
+- How to run AI models on my own computer (no cloud needed)
+- How to extract text from PDF files
+- How AI can summarize long documents
+- Why privacy matters in educational technology
+- How to build a useful tool for teachers and students
 
-Students will learn:
-- Git & GitHub workflow
-- Branch management
-- Team collaboration
-- Research documentation
-- Code management
-- Open-source contribution practices
-- Professional software development workflow
+***
 
---------------------------------------------------
+## 11. Simple Summary
 
-Important Notes
+| Aspect | Details |
+|--------|---------|
+| **Goal** | Build a private AI system that summarizes PDFs for teachers |
+| **Key Feature** | Everything runs locally – no internet, no data shared |
+| **Outputs** | Summary, keywords, assignment topics |
+| **Tools** | Ollama or LM Studio for AI, PyPDF2 for PDF extraction |
+| **Hardware** | 8GB+ RAM computer (works on most student laptops) |
+| **Privacy** | 100% private – documents never leave the computer |
 
-- Every task must have a separate branch
-- Main branch is restricted
-- Research-only submissions are also mandatory through branches
-- All students must maintain proper GitHub activity during internship
-
---------------------------------------------------
-
-Maintained By:
-CSF Internship Program
-Qviple Research & Development Team
+**Conclusion:** This is a simple, private, free tool that helps teachers turn PDFs into summaries and assignment ideas without sending data to the cloud.
