@@ -1,200 +1,154 @@
+AI Feature R&D for Qviple ERP & LMS
 
-# Internship Research Repository
+Team Members
 
-Welcome to the CSF Internship Research Repository.
+• Ruchita Borse
+• Sakshi Joshi
 
-Objective:
-- Maintain internship research work
-- Track coding and documentation contributions
-- Improve collaboration using GitHub workflows
-- Maintain branch-wise task segregation
+---
 
---------------------------------------------------
+Objective
 
-STEP 1 — GitHub Account Verification
+To research practical AI features that can improve the Qviple ERP & LMS experience for students, teachers, institutes, and administrators.
 
-1. Check whether you already have a GitHub account.
+---
 
-2. If you do NOT have a GitHub account:
-   - Create a GitHub account
-   - Share your GitHub username
-   - Wait for collaborator access
+Approach
 
-3. If you already have a GitHub account:
-   - Share your GitHub username
+1. Requirement Understanding
 
---------------------------------------------------
+First, the requirements of the Qviple ERP & LMS system will be studied and understood.
 
-Collaborator Access
+Focus Areas
 
-All submitted GitHub usernames will be added as collaborators to the CSF Repository.
+- Student learning support
+- Teacher productivity
+- Attendance management
+- Assignment handling
+- Admin automation
 
---------------------------------------------------
+---
 
-Branch Rules
+2. Research Phase
 
-IMPORTANT:
-Do NOT push directly to the main branch.
+In this phase, AI tools and educational technology solutions currently used in the market will be researched.
 
-Each student must create a separate branch.
+Study Topics
 
---------------------------------------------------
+- AI chatbot systems
+- Content summarization tools
+- Attendance analytics
+- AI quiz generation
+- ERP automation systems
 
-Branch Naming Convention
+---
 
-topic-name-student-name
+3. User Problem Identification
 
-Examples:
-- payment-security-abhishek
-- ai-research-rohan
-- cloud-computing-sneha
+Problems faced by different users will be identified.
 
---------------------------------------------------
+Students
 
-Task Categories
+- Delay in doubt solving
+- Difficulty understanding long notes
+- Assignment confusion
 
-1. Coding / Development Tasks
+Teachers
 
-If your internship topic includes:
-- coding
-- implementation
-- APIs
-- frontend/backend
-- scripts
-- projects
+- Manual quiz creation
+- Repetitive administrative work
 
-Workflow:
-1. Create a new branch
-2. Add your source code
-3. Commit changes
-4. Push to your branch
+Administrators
 
-Example Commands:
+- Attendance monitoring
+- Report generation
 
-git checkout -b payment-gateway-abhishek
-git add .
-git commit -m "Added payment gateway research code"
-git push origin payment-gateway-abhishek
+---
 
---------------------------------------------------
+4. AI Feature Analysis
 
-2. Research / Documentation Tasks
+Each AI feature will be analyzed based on the following parameters:
 
-If your work includes:
-- research
-- notes
-- PDFs
-- images
-- diagrams
-- documentation
+- User benefit
+- Technical complexity
+- Risk level
+- Implementation feasibility
+- Backend API requirements
 
-Workflow:
-1. Create a separate branch
-2. Upload all files
-3. Push to your branch
+---
 
-Example Commands:
+5. Feature Prioritization
 
-git checkout -b ai-research-rohan
-git add .
-git commit -m "Added AI research documentation"
-git push origin ai-research-rohan
+Features will be prioritized based on:
 
---------------------------------------------------
+- High user value
+- Low implementation risk
+- Faster integration capability
 
-Folder Structure Recommendation
+Recommended First-Phase Features
 
-/project-name
-    /docs
-    /images
-    /code
-    README.md
+1. AI Content Summarizer
+2. Attendance Insight System
+3. Teacher Productivity Assistant
 
---------------------------------------------------
+---
 
-Commit Message Rules
+6. API Requirement Study
 
-Good Examples:
-- Added payment API implementation
-- Uploaded AI research report
-- Added internship documentation
-- Implemented authentication module
+Required backend APIs for each feature will be identified.
 
-Avoid:
-- final
-- update
-- work
-- changes
+Examples
 
---------------------------------------------------
+- Authentication API
+- Course Content API
+- Attendance API
+- AI Chat API
+- Notification API
 
-Submission Process
+---
 
-After completing your work:
-1. Push all changes to your branch
-2. Share:
-   - Branch name
-   - Topic name
-   - Short work summary
+7. User Flow Design
 
---------------------------------------------------
+Simple user-flow diagrams will be created to show how the AI features will work inside the system.
 
-Repository Guidelines
+Example Flow
 
-- Keep code clean and organized
-- Avoid unnecessary files
-- Do not delete others’ work
-- Maintain proper folder structure
-- Upload only relevant files
-- Follow naming conventions
+Student Uploads Notes
+↓
+AI Processes Content
+↓
+Summary Generated
+↓
+Student Views Summary
 
---------------------------------------------------
+---
 
-Recommended Git Commands
+8. Final Documentation
 
-Clone Repository:
-git clone <repository-link>
+The final deliverables will include:
 
-Create Branch:
-git checkout -b your-branch-name
+- AI feature research document
+- Feature priority table
+- User-flow diagrams
+- API requirement notes
+- Final recommendations
 
-Check Current Branch:
-git branch
+---
 
-Add Files:
-git add .
+Tools and Technologies
 
-Commit Changes:
-git commit -m "Your commit message"
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express.js
+- Python
+- MySQL / MongoDB
+- Postman
+- GitHub
 
-Push Branch:
-git push origin branch-name
+---
 
---------------------------------------------------
+Conclusion
 
-Internship Goals
-
-Students will learn:
-- Git & GitHub workflow
-- Branch management
-- Team collaboration
-- Research documentation
-- Code management
-- Open-source contribution practices
-- Professional software development workflow
-
---------------------------------------------------
-
-Important Notes
-
-- Every task must have a separate branch
-- Main branch is restricted
-- Research-only submissions are also mandatory through branches
-- All students must maintain proper GitHub activity during internship
-
---------------------------------------------------
-
-Maintained By:
-CSF Internship Program
-Qviple Research & Development Team
-
+The research on AI features for Qviple ERP & LMS shows that Artificial Intelligence can significantly improve the learning and management experience for students, teachers, administrators, and institutes.
