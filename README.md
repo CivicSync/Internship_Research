@@ -1,200 +1,118 @@
+AI Exam Question Paper Maker
 
-# Internship Research Repository
+Team Members
 
-Welcome to the CSF Internship Research Repository.
+- Mrunmayee Vaidya
+- Samruddhi Rajguru
 
-Objective:
-- Maintain internship research work
-- Track coding and documentation contributions
-- Improve collaboration using GitHub workflows
-- Maintain branch-wise task segregation
+---
 
---------------------------------------------------
+Objective
 
-STEP 1 — GitHub Account Verification
+The objective of this project is to design an AI-based system that helps teachers generate exam question papers automatically using subject topics, difficulty level, marks distribution, and question types.
 
-1. Check whether you already have a GitHub account.
+---
 
-2. If you do NOT have a GitHub account:
-   - Create a GitHub account
-   - Share your GitHub username
-   - Wait for collaborator access
+Approach
 
-3. If you already have a GitHub account:
-   - Share your GitHub username
+1. Requirement Analysis
 
---------------------------------------------------
+The project requirements were analyzed to understand how AI can generate different types of questions such as:
 
-Collaborator Access
+- MCQs
+- Short Answer Questions
+- Long Answer Questions
+- Coding Questions
 
-All submitted GitHub usernames will be added as collaborators to the CSF Repository.
+The required inputs identified were:
 
---------------------------------------------------
+- Subject
+- Chapter/Topic
+- Difficulty Level
+- Marks Distribution
+- Question Type
+- Exam Duration
 
-Branch Rules
+---
 
-IMPORTANT:
-Do NOT push directly to the main branch.
+2. System Design
 
-Each student must create a separate branch.
+A simple workflow was designed for question paper generation.
 
---------------------------------------------------
+Flow:
 
-Branch Naming Convention
+Teacher Input → AI Processing → Question Generation → Teacher Review → Final Question Paper
 
-topic-name-student-name
+---
 
-Examples:
-- payment-security-abhishek
-- ai-research-rohan
-- cloud-computing-sneha
+3. AI Question Generation
 
---------------------------------------------------
+AI prompt-based techniques are used to generate questions from selected topics and difficulty levels.
 
-Task Categories
+Example:
 
-1. Coding / Development Tasks
+“Generate 5 medium-level MCQs from DBMS SQL topic with answers.”
 
-If your internship topic includes:
-- coding
-- implementation
-- APIs
-- frontend/backend
-- scripts
-- projects
+The system can generate:
 
-Workflow:
-1. Create a new branch
-2. Add your source code
-3. Commit changes
-4. Push to your branch
+- Topic-wise questions
+- Difficulty-based questions
+- Marks-based questions
 
-Example Commands:
+---
 
-git checkout -b payment-gateway-abhishek
-git add .
-git commit -m "Added payment gateway research code"
-git push origin payment-gateway-abhishek
+4. Question Paper Formatting
 
---------------------------------------------------
+Generated questions are automatically arranged into sections such as:
 
-2. Research / Documentation Tasks
+- Section A – MCQs
+- Section B – Short Answers
+- Section C – Long Answers
 
-If your work includes:
-- research
-- notes
-- PDFs
-- images
-- diagrams
-- documentation
+The system also adds:
 
-Workflow:
-1. Create a separate branch
-2. Upload all files
-3. Push to your branch
+- Instructions
+- Total Marks
+- Exam Duration
 
-Example Commands:
+---
 
-git checkout -b ai-research-rohan
-git add .
-git commit -m "Added AI research documentation"
-git push origin ai-research-rohan
+5. Teacher Approval Workflow
 
---------------------------------------------------
+The generated question paper is reviewed by the teacher before final submission.
 
-Folder Structure Recommendation
+Teachers can:
 
-/project-name
-    /docs
-    /images
-    /code
-    README.md
+- Edit questions
+- Remove unwanted questions
+- Approve the final paper
 
---------------------------------------------------
+This ensures AI-generated papers are not published without approval.
 
-Commit Message Rules
+---
 
-Good Examples:
-- Added payment API implementation
-- Uploaded AI research report
-- Added internship documentation
-- Implemented authentication module
+Expected Output
 
-Avoid:
-- final
-- update
-- work
-- changes
+- Question Paper Maker Flowchart
+- Sample Prompt Templates
+- Sample Generated Question Paper
+- Teacher Approval Workflow
 
---------------------------------------------------
+---
 
-Submission Process
+Tools & Technologies
 
-After completing your work:
-1. Push all changes to your branch
-2. Share:
-   - Branch name
-   - Topic name
-   - Short work summary
+- Python
+- Flask/Django
+- HTML
+- CSS
+- JavaScript
+- MongoDB/MySQL
+- OpenAI API / NLP Libraries
+- GitHub
 
---------------------------------------------------
+---
 
-Repository Guidelines
+Conclusion
 
-- Keep code clean and organized
-- Avoid unnecessary files
-- Do not delete others’ work
-- Maintain proper folder structure
-- Upload only relevant files
-- Follow naming conventions
-
---------------------------------------------------
-
-Recommended Git Commands
-
-Clone Repository:
-git clone <repository-link>
-
-Create Branch:
-git checkout -b your-branch-name
-
-Check Current Branch:
-git branch
-
-Add Files:
-git add .
-
-Commit Changes:
-git commit -m "Your commit message"
-
-Push Branch:
-git push origin branch-name
-
---------------------------------------------------
-
-Internship Goals
-
-Students will learn:
-- Git & GitHub workflow
-- Branch management
-- Team collaboration
-- Research documentation
-- Code management
-- Open-source contribution practices
-- Professional software development workflow
-
---------------------------------------------------
-
-Important Notes
-
-- Every task must have a separate branch
-- Main branch is restricted
-- Research-only submissions are also mandatory through branches
-- All students must maintain proper GitHub activity during internship
-
---------------------------------------------------
-
-Maintained By:
-CSF Internship Program
-Qviple Research & Development Team
-
+The AI Exam Question Paper Maker helps reduce manual effort and allows teachers to generate structured and customizable question papers quickly using AI techniques.
