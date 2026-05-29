@@ -1,199 +1,257 @@
+Topic:- Node.js Express API Rate Limiting and Abuse Protection.
 
-# Internship Research Repository
+Category:-
+Backend Security / Node.js
+______________________________________
 
-Welcome to the CSF Internship Research Repository.
+1.Objective:-
+The main objective of this project is to research and develop a prototype system that protects ERP and LMS APIs from:
+• brute-force attacks
+• spam requests
+• API abuse
+• scraping
+• excessive traffic
+using Node.js and Express.js middleware.
 
-Objective:
-- Maintain internship research work
-- Track coding and documentation contributions
-- Improve collaboration using GitHub workflows
-- Maintain branch-wise task segregation
+______________________________________
 
---------------------------------------------------
+2. Proposed Best Approach:-
 
-STEP 1 — GitHub Account Verification
+Layered Middleware-Based Protection System-> The best approach is to use multiple protection layers together instead of relying on a single rate limiter.
 
-1. Check whether you already have a GitHub account.
+______________________________________
 
-2. If you do NOT have a GitHub account:
-   - Create a GitHub account
-   - Share your GitHub username
-   - Wait for collaborator access
+3. Working of the system:-
+Workflow
+   i. User sends request to API.
 
-3. If you already have a GitHub account:
-   - Share your GitHub username
+   ii. Middleware checks:
+• IP address
+• user ID
+• route access
+• token validation
+• request count
 
---------------------------------------------------
+  iii. Different limits are applied for:
+• login APIs
+• OTP APIs
+• password reset
+• file upload
+• public APIs
+• admin APIs
 
-Collaborator Access
 
-All submitted GitHub usernames will be added as collaborators to the CSF Repository.
+   iv. If request exceeds limit:
+request blocked
+HTTP 429 returned
+suspicious activity logged
 
---------------------------------------------------
+   v. Valid requests continue to server.
 
-Branch Rules
+______________________________________
 
-IMPORTANT:
-Do NOT push directly to the main branch.
+4. Main Approach Used:-
 
-Each student must create a separate branch.
+4.1 IP-Based Rate Limiting
+Concept
 
---------------------------------------------------
+Limits requests based on client IP address.
+Example
+• 100 requests per 15 minutes per IP
 
-Branch Naming Convention
+Purpose
+Protects against:
+• spam traffic
+• bots
+• repeated requests
 
-topic-name-student-name
+Example Code JavaScript:
+const rateLimit = require("express-rate-limit");
 
-Examples:
-- payment-security-abhishek
-- ai-research-rohan
-- cloud-computing-sneha
+const ipLimiter = rateLimit({
+   windowMs: 15 * 60 * 1000,
+   max: 100,
+   message: "Too many requests from this IP"
+});
 
---------------------------------------------------
+app.use(ipLimiter);
 
-Task Categories
+______________________________________
 
-1. Coding / Development Tasks
+4.2 User ID-Based Limiting
+Concept
 
-If your internship topic includes:
-- coding
-- implementation
-- APIs
-- frontend/backend
-- scripts
-- projects
+Tracks requests based on logged-in users.
+Example
+•  each user gets separate request quota
 
-Workflow:
-1. Create a new branch
-2. Add your source code
-3. Commit changes
-4. Push to your branch
 
-Example Commands:
+Purpose
+Prevents:
+• individual user abuse
+• excessive API consumption
 
-git checkout -b payment-gateway-abhishek
-git add .
-git commit -m "Added payment gateway research code"
-git push origin payment-gateway-abhishek
+______________________________________
 
---------------------------------------------------
+4.3 Route-Based Rate Limiting
+Concept
 
-2. Research / Documentation Tasks
+Different API routes have different request limits.
+Example
 
-If your work includes:
-- research
-- notes
-- PDFs
-- images
-- diagrams
-- documentation
+API Route                       Limit
+Login API                       5 requests/min
+OTP API                         3 requests/min
+Public APIs                    100 requests/min
+Admin APIs                    20 requests/min
 
-Workflow:
-1. Create a separate branch
-2. Upload all files
-3. Push to your branch
+Purpose
+• Provides customized security for sensitive endpoints.
 
-Example Commands:
+______________________________________
 
-git checkout -b ai-research-rohan
-git add .
-git commit -m "Added AI research documentation"
-git push origin ai-research-rohan
+4.4 Login Endpoint Protection
+Concept
 
---------------------------------------------------
+Protects login APIs from brute-force attacks.
 
-Folder Structure Recommendation
+Example
+• After 5 failed login attempts:
+IP temporarily blocked
 
-/project-name
-    /docs
-    /images
-    /code
-    README.md
+Example Code JavaScript
+const loginLimiter = rateLimit({
+   windowMs: 10 * 60 * 1000,
+   max: 5,
+   message: "Too many login attempts"
+});
 
---------------------------------------------------
+app.use('/login', loginLimiter);
 
-Commit Message Rules
+______________________________________
 
-Good Examples:
-- Added payment API implementation
-- Uploaded AI research report
-- Added internship documentation
-- Implemented authentication module
+4.5 Token-Based Access Control
+Concept
 
-Avoid:
-- final
-- update
-- work
-- changes
+JWT tokens are used to authorize API access.
 
---------------------------------------------------
+Purpose
+Ensures:
+• only authorized users access APIs
+• secure communication
 
-Submission Process
 
-After completing your work:
-1. Push all changes to your branch
-2. Share:
-   - Branch name
-   - Topic name
-   - Short work summary
+Example Code JavaScript
+const jwt = require("jsonwebtoken");
 
---------------------------------------------------
+const token = jwt.sign(
+   {id:user.id},
+   "secretkey",
+   {expiresIn:"1h"}
+);
 
-Repository Guidelines
+______________________________________
 
-- Keep code clean and organized
-- Avoid unnecessary files
-- Do not delete others’ work
-- Maintain proper folder structure
-- Upload only relevant files
-- Follow naming conventions
+4.6 Redis-Backed Rate Limiter
+Concept
 
---------------------------------------------------
+Stores request counters inside Redis database.
 
-Recommended Git Commands
+Purpose
+Useful for:
+• large applications
+• distributed systems
+• cloud servers
 
-Clone Repository:
-git clone <repository-link>
+Advantages
+• faster performance
+• scalable
+• persistent counters
+______________________________________
 
-Create Branch:
-git checkout -b your-branch-name
+5. Recommended API Limit Table:-
 
-Check Current Branch:
-git branch
+API Type                   Recommended Limit
+Login API                  5 req/min
+OTP API                     3 req/min
+Password Reset        2 req/min
+File Upload                 10 req/min
+Public APIs                 100 req/min
+Admin APIs                  20 req/min
 
-Add Files:
-git add .
+______________________________________
 
-Commit Changes:
-git commit -m "Your commit message"
+6. Middleware Prototype Design:-
+Middleware Flow
 
-Push Branch:
-git push origin branch-name
+Client Request
+      ↓
+IP Rate Limiter
+      ↓
+JWT Authentication
+      ↓
+Route-Based Limiter
+      ↓
+Abuse Detection
+      ↓
+API Endpoint
 
---------------------------------------------------
+______________________________________
 
-Internship Goals
+7. Sample Middleware Code Javascript:-
 
-Students will learn:
-- Git & GitHub workflow
-- Branch management
-- Team collaboration
-- Research documentation
-- Code management
-- Open-source contribution practices
-- Professional software development workflow
+const express = require('express');
+const rateLimit = require('express-rate-limit');
 
---------------------------------------------------
+const app = express();
 
-Important Notes
+const apiLimiter = rateLimit({
+   windowMs: 15 * 60 * 1000,
+   max: 100,
+   message: "API limit exceeded"
+});
 
-- Every task must have a separate branch
-- Main branch is restricted
-- Research-only submissions are also mandatory through branches
-- All students must maintain proper GitHub activity during internship
+app.use('/api', apiLimiter);
 
---------------------------------------------------
+app.get('/api/data', (req,res)=>{
+   res.send("Protected API");
+});
 
-Maintained By:
-CSF Internship Program
-Qviple Research & Development Team
+app.listen(3000);
+
+______________________________________
+
+8. Test Cases:-
+
+Test Case                          Expected Result
+Normal API request          Success
+Excessive requests          Blocked
+Invalid token                      Unauthorized
+Multiple failed logins         IP blocked
+Public API access              Limited after     
+                                              threshold
+______________________________________
+
+9. Advantages of Proposed Approach:-
+
+• Improves backend security
+• Prevents brute-force attacks
+• Controls spam traffic
+• Reduces server overload
+• Protects sensitive APIs
+• Provides scalable middleware architecture
+______________________________________
+
+10. Future Scope:-
+
+Future improvements may include:
+• AI-based anomaly detection
+• CAPTCHA integration
+• Real-time monitoring dashboard
+• Cloud deployment
+• Advanced DDoS protection
+______________________________________
+
+11. Conclusion:-
+
+The project successfully demonstrates a layered middleware-based API protection system using Node.js and Express.js. By implementing IP-based limiting, route-based control, token authentication, and abuse detection mechanisms, the system improves API security and protects servers from malicious traffic and excessive requests.
